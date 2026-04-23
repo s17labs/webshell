@@ -1,13 +1,13 @@
 # Project Structure
 
-A complete map of every file in the template and what it does.
+A complete map of every file in the project and what it does.
 
 ---
 
 ## Top-Level Layout
 
 ```
-template/
+webshell/
 ├── app/                        ← The Android app module
 │   ├── build.gradle.kts        ← App-level build config
 │   └── src/main/
@@ -21,7 +21,11 @@ template/
 │       └── res/                ← Android resources (icons, strings, etc.)
 ├── build.gradle.kts            ← Root-level build config
 ├── gradle.properties           ← Gradle and JVM settings
-└── settings.gradle.kts         ← Project name and module declarations
+├── gradle/wrapper/            ← Gradle wrapper files
+│   ├── gradle-wrapper.jar
+│   └── gradle-wrapper.properties
+├── settings.gradle.kts         ← Project name and module declarations
+└── gradlew                   ← Build script
 ```
 
 ---

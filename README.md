@@ -25,6 +25,7 @@ Think of it like Capacitor or Cordova, but stripped down to only what you actual
 
 | Item | Version |
 |---|---|
+| Java | 17 (required for AGP 8.7.3) |
 | Android `minSdk` | 26 (Android 8.0) |
 | Android `targetSdk` | 35 |
 | Android Studio | Hedgehog or newer |
@@ -39,9 +40,8 @@ Think of it like Capacitor or Cordova, but stripped down to only what you actual
 
 ```bash
 git clone https://github.com/s17labs/webshell.git MyApp
+cd MyApp
 ```
-
-Or just copy the `template/` folder and rename it.
 
 ### 2. Make three small edits to Android files
 
@@ -49,7 +49,7 @@ Or just copy the `template/` folder and rename it.
 |---|---|
 | `app/build.gradle.kts` | Set `applicationId`, `versionCode`, `versionName` |
 | `app/src/main/AndroidManifest.xml` | Set app name, icon, permissions |
-| `MainActivity.kt` | Optionally configure bridge or WebView settings |
+| `app/src/main/res/values/strings.xml` | Set app display name |
 
 Full details in [Getting Started →](docs/getting-started.md)
 
@@ -65,7 +65,11 @@ Include `bridge.js` in your HTML and you're connected to native.
 
 ### 4. Build and run
 
-Hit **Run** in Android Studio. That's it.
+```bash
+./gradlew assembleDebug
+```
+
+The APK will be at `app/build/outputs/apk/debug/app-debug.apk`. Install it on your device or emulator.
 
 ---
 
@@ -75,28 +79,31 @@ Hit **Run** in Android Studio. That's it.
 webshell/
 ├── README.md                   ← You are here
 ├── docs/
-│   ├── getting-started.md      ← Setup walkthrough
-│   ├── project-structure.md    ← Where everything lives
-│   ├── bridge-api.md           ← Full JS ↔ Native bridge docs
-│   ├── gotchas-and-tips.md     ← Important warnings & edge cases
-│   └── examples.md             ← Code examples
-└── template/                   ← The actual Android project template
-    ├── app/
-    │   ├── build.gradle.kts
-    │   └── src/main/
-    │       ├── AndroidManifest.xml
-    │       ├── assets/www/         ← YOUR WEB APP GOES HERE
-    │       │   ├── index.html
-    │       │   ├── bridge.js       ← The JS-side bridge (include this)
-    │       │   ├── app.js          ← Starter app (replace with yours)
-    │       │   └── style.css       ← Starter styles (replace with yours)
-    │       ├── kotlin/com/yourapp/
-    │       │   ├── MainActivity.kt
-    │       │   └── NativeBridge.kt
-    │       └── res/
-    ├── build.gradle.kts
-    ├── gradle.properties
-    └── settings.gradle.kts
+│   ├── getting-started.md    ← Setup walkthrough
+│   ├── project-structure.md  ← Where everything lives
+│   ├── bridge-api.md        ← Full JS ↔ Native bridge docs
+│   ├── gotchas-and-tips.md   ← Important warnings & edge cases
+│   └── examples.md         ← Code examples
+├── app/                      ← The Android app module
+│   ├── build.gradle.kts
+│   └── src/main/
+│       ├── AndroidManifest.xml
+│       ├── assets/www/         ← YOUR WEB APP GOES HERE
+│       │   ├── index.html
+│       │   ├── bridge.js       ← The JS-side bridge (include this)
+│       │   ├── app.js        ← Starter app (replace with yours)
+│       │   └── style.css    ← Starter styles (replace with yours)
+│       ├── kotlin/com/yourapp/
+│       │   ├── MainActivity.kt
+│       │   └── NativeBridge.kt
+│       └── res/
+├── build.gradle.kts
+├── gradle.properties
+├── gradle/wrapper/          ← Gradle wrapper files
+│   ├── gradle-wrapper.jar
+│   └── gradle-wrapper.properties
+├── settings.gradle.kts
+└── gradlew                   ← Build script (run with: ./gradlew assembleDebug)
 ```
 
 ---

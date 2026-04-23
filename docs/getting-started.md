@@ -4,10 +4,11 @@ This guide walks you through setting up WebShell from scratch and shipping your 
 
 ---
 
-## Prerequisites
+## Prerequisite
 
 Before you begin, make sure you have:
 
+- **Java 17** (required for AGP 8.7.3)
 - **Android Studio** (Hedgehog 2023.1.1 or newer)
 - **Android SDK** with API 26–35 installed
 - A basic understanding of how Android projects are structured
@@ -26,15 +27,7 @@ cd MyApp
 
 ### Option B: Download and copy
 
-Download the ZIP, extract it, and rename the `template/` folder to your app name.
-
-### Option C: Manual setup
-
-If you want to drop this into an existing Android project:
-
-1. Copy `NativeBridge.kt` and `MainActivity.kt` into your project's source directory
-2. Copy the `assets/www/` folder into `app/src/main/`
-3. Apply the `AndroidManifest.xml` and `build.gradle.kts` changes from Step 3 below
+Download the ZIP and extract it.
 
 ---
 
@@ -42,7 +35,7 @@ If you want to drop this into an existing Android project:
 
 1. Open Android Studio
 2. Choose **Open** (not "New Project")
-3. Navigate to the `template/` folder and open it
+3. Navigate to the project folder and open it
 4. Wait for Gradle sync to complete
 
 If you see "Gradle sync failed", check that you have SDK API 35 installed via **SDK Manager → SDK Platforms**.
@@ -71,13 +64,10 @@ android {
 
 > **Note on `namespace` vs `applicationId`**: `namespace` controls the R class and generated code. `applicationId` is what gets published to the Play Store. They're usually the same, but they don't have to be.
 
-### `app/src/main/AndroidManifest.xml`
+### `app/src/main/res/values/strings.xml`
 
 ```xml
-<application
-    android:label="Your App Name"     <!-- ← change this -->
-    android:icon="@mipmap/ic_launcher"
-    ...>
+<string name="app_name">Your App Name</string>
 ```
 
 To set a custom icon, replace the files in `res/mipmap-*/`. Android Studio's **Image Asset Studio** (right-click `res` → New → Image Asset) is the easiest way to generate all sizes.
@@ -141,11 +131,21 @@ Reference them with relative paths as you normally would in HTML.
 
 ---
 
-## Step 5 — Run
+## Step 5 — Build
+
+### Option A: Android Studio
 
 1. Connect an Android device (API 26+) or launch an emulator
 2. Click **Run** (▶) in Android Studio
 3. Your app should open full-screen showing your `index.html`
+
+### Option B: Command line
+
+```bash
+./gradlew assembleDebug
+```
+
+The APK will be at `app/build/outputs/apk/debug/app-debug.apk`. Install it on your device or emulator.
 
 ---
 

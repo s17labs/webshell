@@ -10,6 +10,10 @@ android {
 
     compileSdk = 35
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         // ── Change these to match your app ────────────
         applicationId = "com.yourapp"
