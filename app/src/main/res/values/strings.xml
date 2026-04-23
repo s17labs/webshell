@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Change this to your app's display name -->
+    <string name="app_name">WebShell</string>
+</resources>

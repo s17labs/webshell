@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Add permissions here as you need them.
+        Only declare what your app actually uses.
+
+        Common permissions:
+            android.permission.INTERNET           — for loading remote URLs or making API calls
+            android.permission.VIBRATE            — for NativeBridge.vibrate()
+            android.permission.ACCESS_FINE_LOCATION
+            android.permission.ACCESS_COARSE_LOCATION
+            android.permission.CAMERA
+            android.permission.POST_NOTIFICATIONS  — API 33+ for push notifications
+    -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!--
+        hardwareAccelerated MUST be true for smooth WebView rendering.
+        Do not set this to false.
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WebShell"
+        android:hardwareAccelerated="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize"
+            android:windowSoftInputMode="adjustResize">
+            <!--
+                configChanges: prevents Activity recreation on rotation, keyboard open, etc.
+                This keeps your web app running without a reload on config changes.
+                See docs/gotchas-and-tips.md for more.
+
+                windowSoftInputMode: adjustResize makes the WebView resize when the
+                keyboard appears so input fields aren't hidden behind it.
+                Use adjustPan if you prefer the view to pan instead.
+            -->
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--
+        viewport-fit=cover is required for edge-to-edge display.
+        If you're not using WindowCompat.setDecorFitsSystemWindows(window, false)
+        in MainActivity, you can remove viewport-fit=cover.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>WebShell App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+        <header class="app-header">
+            <h1>WebShell</h1>
+            <p class="subtitle">Your web app is running.</p>
+        </header>
+
+        <main class="app-main">
+            <div class="card">
+                <h2>Bridge Status</h2>
+                <p id="bridge-status">Checking...</p>
+            </div>
+
+            <div class="card">
+                <h2>Device Info</h2>
+                <pre id="device-info">Loading...</pre>
+            </div>
+
+            <div class="actions">
+                <button id="btn-toast">Show Toast</button>
+                <button id="btn-vibrate">Vibrate</button>
+                <button id="btn-share">Share</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Always load bridge.js before your app scripts -->
+    <script src="bridge.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

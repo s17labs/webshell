@@ -1,0 +1,144 @@
+/* WebShell — starter style.css
+ * Replace this with your own styles.
+ * This is just enough to make the demo app presentable.
+ */
+
+:root {
+    --color-bg: #0f0f0f;
+    --color-surface: #1a1a1a;
+    --color-border: #2a2a2a;
+    --color-text: #f0f0f0;
+    --color-text-muted: #888;
+    --color-accent: #3d82f6;
+    --color-success: #4ade80;
+    --color-warning: #facc15;
+
+    --radius: 12px;
+    --gap: 16px;
+
+    /* Safe area insets for edge-to-edge display */
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-tap-highlight-color: transparent; /* remove tap flash on Android */
+}
+
+/* Disable text selection for native app feel.
+   Re-enable on inputs/textareas below. */
+* {
+    -webkit-user-select: none;
+    user-select: none;
+}
+input, textarea, [contenteditable] {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding-top: var(--safe-top);
+    padding-bottom: var(--safe-bottom);
+    padding-left: var(--safe-left);
+    padding-right: var(--safe-right);
+}
+
+/* ── Header ───────────────────────────── */
+.app-header {
+    padding: 32px var(--gap) 16px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.app-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.app-header .subtitle {
+    color: var(--color-text-muted);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* ── Main ─────────────────────────────── */
+.app-main {
+    flex: 1;
+    padding: var(--gap);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+/* ── Cards ────────────────────────────── */
+.card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--gap);
+}
+
+.card h2 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+}
+
+.card p, .card pre {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.card pre {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* ── Buttons ──────────────────────────── */
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 14px var(--gap);
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+    opacity: 0.75;
+}
