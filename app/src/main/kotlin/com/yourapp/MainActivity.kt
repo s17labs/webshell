@@ -49,7 +49,9 @@ class MainActivity : AppCompatActivity() {
                 domStorageEnabled = true
 
                 // Enables loading files from assets/www/
-                allowFileAccess = true
+                // (file:///android_asset works regardless; this only governs
+                //  the broader file system, so keep it off for security)
+                allowFileAccess = false
 
                 // Optional: disable zoom controls for a more app-like feel
                 setSupportZoom(false)
@@ -88,8 +90,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             // Match your app's background to avoid white flash on load.
-            // Change this to match your index.html's background color.
-            setBackgroundColor(Color.parseColor("#FFFFFF"))
+            // Change this to match your index.html's background color
+            // (the starter theme uses #0F0F0F).
+            setBackgroundColor(Color.parseColor("#0F0F0F"))
 
             // Enable Chrome DevTools inspection in debug builds.
             // NEVER ship with this enabled in production.

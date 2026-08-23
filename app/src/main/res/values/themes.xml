@@ -6,7 +6,8 @@
         and lets your web app control all visual styling.
 
         Key attributes:
-        - windowBackground: transparent to avoid white flash before HTML loads
+        - windowBackground: black to match the starter app's dark background
+          and avoid a white flash before HTML loads
         - statusBarColor / navigationBarColor: transparent for edge-to-edge
         - windowActionBar: false — no native action bar (your web app is the UI)
     -->

@@ -14,6 +14,9 @@
             android.permission.POST_NOTIFICATIONS  — API 33+ for push notifications
     -->
     <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- Required for fetch()/XHR/API calls and any remote content.
+         Remove this only if your app is fully offline. -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!--
         hardwareAccelerated MUST be true for smooth WebView rendering.

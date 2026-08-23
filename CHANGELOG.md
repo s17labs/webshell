@@ -4,6 +4,23 @@ All notable changes to WebShell will be documented here.
 
 ---
 
+## [1.0.2] — Portability & Hygiene Fixes
+
+### Fixed
+- Actually removed the misnamed `gridle/` directory (claimed in 1.0.1 but still present)
+- Removed machine-specific paths from `gradle.properties` (`org.gradle.java.home`, `android.aapt2FromMavenOverride`) — set `JAVA_HOME` and `sdk.dir` in your own environment instead
+- Untracked `local.properties` from git (machine-specific; stays in `.gitignore`)
+
+### Changed
+- Added `INTERNET` permission to the manifest — required for fetch/XHR/API calls; remove if fully offline
+- Removed unnecessary `android.enableJetifier=true`
+- `allowFileAccess` now `false` (hardening; asset loading unaffected)
+- WebView background now matches the starter app's dark theme (`#0F0F0F`) instead of white
+- Corrected themes.xml comment (windowBackground is black, not transparent)
+- Expanded `.gitignore` (build outputs, IDE dirs, Kotlin caches)
+
+---
+
 ## [1.0.1] — Build Fixes
 
 ### Fixed

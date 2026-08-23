@@ -5,8 +5,13 @@
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
+.idea/
 .DS_Store
-/build
+build/
 /captures
 .externalNativeBuild
-
+.cxx
+.kotlin/
+*.apk
+*.aab
+*.hprof
