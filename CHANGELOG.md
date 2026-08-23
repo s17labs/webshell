@@ -4,6 +4,14 @@ All notable changes to WebShell will be documented here.
 
 ---
 
+## [Unreleased]
+
+### Added
+- GitHub Actions CI (`.github/workflows/ci.yml`): builds a debug APK on every push/PR, validates the Gradle wrapper, caches Gradle, uploads the APK as an artifact
+- CI status badge in README
+
+---
+
 ## [1.0.2] — Portability & Hygiene Fixes
 
 ### Fixed
