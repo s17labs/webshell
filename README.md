@@ -83,7 +83,8 @@ webshell/
 │   ├── project-structure.md  ← Where everything lives
 │   ├── bridge-api.md        ← Full JS ↔ Native bridge docs
 │   ├── gotchas-and-tips.md   ← Important warnings & edge cases
-│   └── examples.md         ← Code examples
+│   ├── examples.md         ← Code examples
+│   └── java-reference.md   ← Java equivalents for all Kotlin source files
 ├── app/                      ← The Android app module
 │   ├── build.gradle.kts
 │   └── src/main/
