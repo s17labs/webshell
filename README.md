@@ -1,5 +1,7 @@
 # 🐚 WebShell
 
+[![CI](https://github.com/s17labs/webshell/actions/workflows/ci.yml/badge.svg)](https://github.com/s17labs/webshell/actions/workflows/ci.yml)
+
 **A minimal Android WebView wrapper kit for building native Android apps with plain HTML, CSS, and JavaScript.**
 
 No React. No Electron. No Capacitor. No bloat. Just a clean, well-documented Android shell that loads your web app and gives it access to native device features through a simple JS bridge.
